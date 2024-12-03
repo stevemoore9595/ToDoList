@@ -21,13 +21,6 @@ namespace API.Data.Migrations
                 type: "BLOB",
                 nullable: false,
                 defaultValue: new byte[0]);
-
-            migrationBuilder.AddColumn<byte[]>(
-                name: "PasswordSalt",
-                table: "Users",
-                type: "BLOB",
-                nullable: false,
-                defaultValue: new byte[0]);
         }
 
         /// <inheritdoc />
@@ -40,11 +33,6 @@ namespace API.Data.Migrations
             migrationBuilder.DropColumn(
                 name: "PasswordSalt",
                 table: "Users");
-
-            migrationBuilder.RenameColumn(
-                name: "UserName",
-                table: "Users",
-                newName: "Username");
         }
     }
 }
