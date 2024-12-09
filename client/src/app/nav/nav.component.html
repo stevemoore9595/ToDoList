@@ -1,17 +1,17 @@
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
   <div class="container">
-    <a class="navbar-brand" href="#">To Do List</a>
+    <a class="navbar-brand" routerLink="/">To Do List</a>
 
     @if (accountService.currentUser()) {
     <ul class="navbar-nav me-auto mb-2 mb-md-0">
       <li class="nav-item">
-        <a class="nav-link active">Create New List</a>
+        <a routerLink="/new-list" class="nav-link active">Create New List</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link active">Current Lists</a>
+        <a routerLink="/current-lists" class="nav-link active">Current Lists</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link active">Completed Lists</a>
+        <a routerLink="/completed-lists" class="nav-link active">Completed Lists</a>
       </li>
     </ul>
     }
