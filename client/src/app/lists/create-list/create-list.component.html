@@ -1,1 +1,19 @@
-<p>new-list works!</p>
+<div class="container">
+    <h2>Create a New List</h2>
+    <form (submit)="addList(); $event.preventDefault()">
+      <div class="form-group">
+        <label for="listName">List Name:</label>
+        <input
+          type="text"
+          id="listName"
+          class="form-control"
+          [(ngModel)]="newListName"
+          name="listName"
+          placeholder="Enter list name"
+          required
+        />
+      </div>
+      <button type="submit" class="btn btn-primary mt-3">Add List</button>
+    </form>
+  </div>
+  

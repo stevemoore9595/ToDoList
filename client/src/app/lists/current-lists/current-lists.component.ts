@@ -1,14 +1,16 @@
-import { Component, OnInit } from '@angular/core';
-import { ListService, List } from '../list.service';
+import { Component, inject, OnInit } from '@angular/core';
+import { List, ListService } from '../../_services/list.service';
 
 @Component({
   selector: 'app-current-lists',
+  standalone: true,
+  imports: [],
   templateUrl: './current-lists.component.html',
+  styleUrl: './current-lists.component.css'
 })
 export class CurrentListsComponent implements OnInit {
+  listService = inject(ListService);
   currentLists: List[] = [];
-
-  constructor(private listService: ListService) {}
 
   ngOnInit() {
     this.fetchLists();
