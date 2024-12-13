@@ -1,12 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ListService, List } from '../list.service';
 
 @Component({
   selector: 'app-completed-lists',
-  standalone: true,
-  imports: [],
   templateUrl: './completed-lists.component.html',
-  styleUrl: './completed-lists.component.css'
 })
-export class CompletedListsComponent {
+export class CompletedListsComponent implements OnInit {
+  completedLists: List[] = [];
 
+  constructor(private listService: ListService) {}
+
+  ngOnInit() {
+    this.listService.getCompletedLists().subscribe((lists) => {
+      this.completedLists = lists;
+    });
+  }
 }

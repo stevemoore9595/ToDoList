@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NewListComponent } from './new-list.component';
+import { NewListComponent } from './create-list.component';
 
 describe('NewListComponent', () => {
   let component: NewListComponent;
