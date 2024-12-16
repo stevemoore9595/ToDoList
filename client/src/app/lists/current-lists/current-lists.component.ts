@@ -1,10 +1,11 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { List, ListService } from '../../_services/list.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-current-lists',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './current-lists.component.html',
   styleUrl: './current-lists.component.css'
 })
