@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CurrentListsComponent } from './current-lists.component';
+import { ToDoListComponent } from './to-do-list.component';
 
-describe('CurrentListsComponent', () => {
-  let component: CurrentListsComponent;
-  let fixture: ComponentFixture<CurrentListsComponent>;
+describe('ToDoListComponent', () => {
+  let component: ToDoListComponent;
+  let fixture: ComponentFixture<ToDoListComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CurrentListsComponent]
+      imports: [ToDoListComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(CurrentListsComponent);
+    fixture = TestBed.createComponent(ToDoListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
