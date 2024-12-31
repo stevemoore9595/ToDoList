@@ -1,25 +1,34 @@
 <div class="container mt-5">
     <h1>To Do List</h1>
-    <hr>
+    <!-- <hr> -->
     <form #toDoForm="ngForm"(ngSubmit)="addItem()" autocomplete="off">
         <div class="mb-3 form-floating">
             <input
             type="text"
+            class="form-control-sm"
             [(ngModel)]="newItem"
             name="item"
-            placeholder="Add a new item"
+            placeholder="Add new item"
             required
             >
-            <button class="btn btn-primary btn-sm me-2" type="submit">Add</button>
+            <button class="btn btn-primary btn-md ms-2 mb-1" type="submit">Add</button>
         </div>
     </form>
-    <div class="mb-3">
+  <div class="mb-3">
     <ul>
-      <li *ngFor="let item of toDoList">
-        {{ item.item }}
-        <!-- {{item.id}} -->
-        <button class="btn btn-primary btn-sm me-2" (click)="removeItem(item.id)">Delete</button>
+      
+      <li *ngFor="let item of toDoList" class="mb-2">
+        <div>
+        {{ item.item }} - {{item.id}}
+        <input 
+        class="form-check-input-border ms-2 mt-1"
+        type="checkbox" 
+        value="" id="flexCheckChecked"
+        [checked]="item.isCompleted" 
+        (change)="updateCompletedStatus(item.id, $event)">
+        <button class="btn btn-primary btn-sm ms-2" (click)="removeItem(item.id)">Delete</button>
+      </div>
       </li>
     </ul>
-</div>
   </div>
+</div>

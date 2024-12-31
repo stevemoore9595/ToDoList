@@ -49,13 +49,36 @@ export class ToDoListComponent {
     }
   }
 
+  updateCompletedStatus(id: number | undefined, event: Event): void {
+    if (id === undefined) {
+      console.error('Invalid id');
+      return;
+    }
+
+    const inputElement = event.target as HTMLInputElement;  // Type-cast to HTMLInputElement
+    const isCompleted = inputElement.checked;  // Access the 'checked' property
+
+    const updatedItem: ToDoItemDto = {
+      id, item: '', isCompleted,
+    };
+
+    this.toDoService.updateCompletedStatus(updatedItem).subscribe({
+      next: () => {
+        this.getItems(); // Refresh the list to show the updated status
+      },
+      error: (err) => {
+        console.error('Error updating completed status:', err);
+      }
+    });
+  }
+
   // Remove an item from to do list
   removeItem(id: number | undefined): void {
     console.log(id);
     if (id !== undefined) {
       this.toDoService.removeItem(id).subscribe({
-        next: (data) => {
-          this.toDoList = data;
+        next: () => {
+          this.toDoList = this.toDoList.filter(item => item.id !== id);
         },
         error: (err) => {
           console.error('Error removing item:', err);

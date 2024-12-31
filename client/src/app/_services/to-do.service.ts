@@ -7,6 +7,7 @@ export interface ToDoItemDto {
   id?: number;
   item: string;
   isDeleted?: boolean;
+  isCompleted?: boolean;
 }
 
 @Injectable({
@@ -21,12 +22,14 @@ export class ToDoService {
     return this.http.get<ToDoItemDto[]>(this.apiUrl);
   }
 
-  // Add a new grocery item
   addItem(newItem: ToDoItemDto): Observable<ToDoItemDto[]> {
     return this.http.post<ToDoItemDto[]>(this.apiUrl, newItem);
   }
 
-  // Remove a grocery item
+  updateCompletedStatus(updatedItem: ToDoItemDto): Observable<void> {
+    return this.http.put<void>(`${this.apiUrl}/${updatedItem.id}`, updatedItem);
+  }
+
   removeItem(id: number): Observable<ToDoItemDto[]> {
     return this.http.delete<ToDoItemDto[]>(`${this.apiUrl}/${id}`);
   }
